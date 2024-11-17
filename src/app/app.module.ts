@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/header/header.component';
 import { SideMenuComponent } from './side-menu/side-menu/side-menu.component';
 import { HomeComponent } from './dashboard/home/home.component';
 import { PopupRenderComponent } from './dashboard/popup-render/popup-render.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

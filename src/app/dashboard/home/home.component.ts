@@ -9,8 +9,10 @@ export class HomeComponent {
   enablePopup: boolean = false
   formData: any = []
   employeeDtls: any = {}
+  employeeDtlsCopy: any = {}
   typeOfEdit: boolean = false  //to check new or edit
   viewId: any
+  search: string = ''
 
   addEmployee() {
     this.typeOfEdit = false
@@ -79,6 +81,7 @@ export class HomeComponent {
       alert('Employee Details Updated')
       this.enablePopup = !this.enablePopup
     }
+    this.employeeDtlsCopy = { ...this.employeeDtls }
   }
 
 
@@ -99,6 +102,23 @@ export class HomeComponent {
     console.log(item, 'edit Values');
     this.typeOfEdit = true
     this.enablePopup = !this.enablePopup
+  }
+
+  serachEmploye(event: any) {
+    const filteredData = Object.keys(this.employeeDtlsCopy).reduce((acc: any, key) => {
+      // Check if any item in the group matches the search
+      const hasMatch = this.employeeDtlsCopy[key].some((item: any) =>
+        item.keyValue.toLowerCase().includes(this.search.toLowerCase())
+      );
+
+      // If there's a match, add the entire group to the result
+      if (hasMatch) {
+        acc[key] = this.employeeDtlsCopy[key];
+      }
+
+      return acc;
+    }, {});
+    this?.search?.length > 0 ? this.employeeDtls = filteredData : this.employeeDtls = this.employeeDtlsCopy
   }
 
 }

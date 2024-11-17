@@ -1,0 +1,27 @@
+# _config.yml
+title: My Jekyll Site
+description: "A simple Jekyll site"
+url: "https://chandu8880.github.io"
+
+# Set the base URL (if necessary)
+baseurl: ""
+
+# Define the source directory (where your content lives)
+source: ./docs
+
+# Configure the Sass/SCSS converter
+sass:
+  sass_dir: assets/css  # Set the directory containing your SCSS files
+  style: compressed     # Optional: defines the CSS output style (compressed, expanded)
+
+# Configure the theme (if using a Jekyll theme)
+theme: jekyll-theme-primer
+
+# Set other necessary settings
+plugins:
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-github-metadata
+  - jekyll-sass-converter
+
+# Add any additional configurations or settings as needed
